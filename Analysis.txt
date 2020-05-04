@@ -1,0 +1,81 @@
+Run time analysis of Task0.py:
+	My code includes 2 prints statements in 2 lines, so number of computations (N) = 2
+	Run time will be = O(2)
+	The Big O notation will be O(1)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Run time analysis of Task1.py:
+
+	My function has a list declaration statement, 1 for loop and a print statemnt.
+
+	So, run time will be 1 for the list declaration + number of computation of the loop + 1 for the print statement.
+
+	The for loop loops for a size of a list (n) and it includes:
+
+		2 if condistions, each one includes 1 operation that appends a value to a list.
+
+		for the worst case we will assume that all the numbers are different,
+		so the function will append all the numbers to the list, and that will cost us 4 lines of code (operations)
+		
+		The run time of the loop will be (4 * list size) = 4n
+
+	The run time will be 1 + 4n + 1 = 4n + 2 = 4n = n
+
+	The Big O Notation will be O(n)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Run time analysis of Task2.py:
+
+	My function includes 2 variables declaration statements, for loop, and 1 print statement.
+
+	So, the run time will be 1 2 for the 2 variables declaration + run time of the for loop + 1 for the print statement.
+
+	The for loop loops for a size of a list (n) and it includes:
+
+		1 if condition and 2 operations inside it.
+		
+		We will assume that the list is ordered ascendingly, so we will go inside the if condition every loop,
+		so the run time will be 3 * size of the list given to the function as a parameter.
+
+		The run time of the loop will be 3n
+	
+	The run time will be 2 + 3n + 1 = 3n + 5 = 3n = n
+	
+	The Big O Notation is O(n)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Run time analsys of Task3.py:
+
+	My function includes 3 declaration statements, for loop and 5 operations.
+
+	The loop includes 1 if condition that has 4 if conditions.
+
+	The loop can go inside 2 conditions in the worst case.
+
+	The both conditions have 8 computations.
+
+	The run time of the loop will be 3 * size of the list.
+
+	The run time of each statement after the loop will be O(1) "except codes_list.sort(key=len)" will be O(n logn),
+	and "codes_list = list(all_codes)" will be O(n)
+
+	So the run time will be O(1) + O(3n) + O(n) + O(n logn) + O(1) + O(1) + O(1) = O(n logn)
+
+	The Big O Notation is O(n logn)
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Run time analsys of Task4.py
+
+	The function includes 2 declaration statements, 3 for loops and a print statement.
+
+	The First and the second for loop is O(n).
+
+	The third loop is O(n * m) = O(n^2) in the worst case scenario.
+
+	The print statement is O(n) as I print a list.
+	
+	The Big O Notation is O(n^2)
