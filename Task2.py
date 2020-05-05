@@ -14,12 +14,26 @@ with open('calls.csv', 'r') as f:
 
 def get_longest(csv_list):
     max_length = -1
+    numbers_duration = dict()
     tel = ""
     for record in csv_list:
-        if int(record[3]) >= max_length:
-            max_length = int(record[3])
-            tel = record[0]
-    print(tel, "spent the longest time,", max_length, "seconds, on the phone during september 2016.")
+        # Adding durations of the calling numbers in the calls cumulatively
+        if numbers_duration.get(record[0]) is not None:
+            numbers_duration[record[0]] += int(record[3])
+        else:
+            numbers_duration[record[0]] = int(record[3])
+
+        # Adding durations of the answering numbers cumulatively with the calling
+        if numbers_duration.get(record[1]) is not None:
+            numbers_duration[record[1]] += int(record[3])
+        else:
+            numbers_duration[record[1]] = int(record[3])
+
+    # Finding the maximum length and the number that has the maximum duration
+    max_number = max(numbers_duration, key=numbers_duration.get)
+    max_length = max(numbers_duration.values())
+
+    print(f"{max_number} spent the longest time {max_length} seconds, on the phone during september 2016.")
 
 
 get_longest(calls)

@@ -26,14 +26,14 @@ def get_area_codes(csv_list):
                 tel_code = record[1].split(")")
                 tel_code[0] += ")"
                 all_codes.add(tel_code[0])
-            elif record[1].startswith("6") or record[1].startswith("7") or record[1].startswith("8"):
+            elif record[1].startswith("7") or record[1].startswith("8") or record[1].startswith("9"):
                 all_codes.add(record[1][0:4])
             elif record[1].startswith("140"):
                 all_codes.add(record[1][0:3])
     codes_list = list(all_codes)
-    codes_list.sort(key=len)
+    codes_list.sort(key=str)
     print("The numbers called by people in Bangalore have codes:\n" + "\n".join(codes_list))
-    percentage = calls_from_bangalore / calls_to_bangalore
+    percentage = (calls_to_bangalore * 100) / calls_from_bangalore
     print(f"{percentage:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
 
 

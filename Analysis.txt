@@ -74,8 +74,12 @@ Run time analsys of Task4.py
 
 	The First and the second for loop is O(n).
 
-	The third loop is O(n * m) = O(n^2) in the worst case scenario.
+	The third loop will take every record of the calls file and will check for the record[0] if it is in the all_numbers
+	set or not, so it will loop (length of the calls records * size of the all_numbers set) times.
+    We can simplify that and say it will loop (m * n) times, and for more simplification we can say n*n or n^2
+
+    So the run time will be n + n + n^2 = 3n + n^2, which will be n^2
 
 	The print statement is O(n) as I print a list.
 	
-	The Big O Notation is O(n^2)
+	The Big O Notation is O(n) + O(n) + O(n^2) + O(n) and that will be O(n^2)
